@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fake News Detection Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #28a745; /* Green background */
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header-subtitle {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .login-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            margin: 20px auto;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            background-color: #28a745; /* Green button */
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .login-container button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        .login-container a {
+            color: #28a745; /* Green link */
+            text-decoration: none;
+        }
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Fake News Detection Platform</h1>
+        <p class="header-subtitle">Verify Articles Here</p>
+    </header>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+        </form>
+    </div>
+</body>
+</html>

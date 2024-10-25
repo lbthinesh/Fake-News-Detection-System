@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - Fake News Detection Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #28a745; /* Green background */
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header-subtitle {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .main-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .main-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container a {
+            text-decoration: none;
+            background-color: #28a745; /* Green button */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            display: inline-block;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+        .button-container a:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        
+        /* Extra Content Section */
+        .extra-content {
+            margin-top: 50px;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: left;
+        }
+
+        .extra-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .extra-content h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .extra-content p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            text-align: left;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .contact-info a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 15px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .footer-container h3 {
+            font-size: 22px;
+            margin: 5px;
+        }
+
+        .footer-container p {
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        /* Contact Info Styling */
+        .contact-info {
+            display: flex;  /* Use flexbox for horizontal alignment */
+            justify-content: center; /* Center the items */
+            gap: 40px; /* Space between items */
+        }
+
+        .contact-info p {
+            margin: 0; /* Remove default margin */
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: none;
+            color: #d4d4d4;
+        }
+
+
+
+    </style>
+    {% load static %}
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Fake News Detection Platform</h1>
+        <p class="header-subtitle">Verify Articles Here</p>
+    </header>
+
+    <div class="main-container">
+        <h2>Welcome to the Fake News Detection Platform</h2>
+        <p>Stay informed with our Fake News Detection Platform,<br> built using BERT and BiLSTM models for accurate and real-time verification of news articles.<br> Detect misinformation effortlessly and access reliable, trustworthy content.</p>
+        <div class="button-container">
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+    </div>
+
+    <div class="extra-content">
+        <img src="{% static 'images/news1.jpg' %}" alt="Fake News Detection Illustration">
+        <h3>About Fake News Detection</h3>
+        <p>
+            In today's fast-paced world, misinformation spreads like wildfire. Our Fake News Detection Platform helps individuals and organizations stay ahead of fake news. 
+            Using advanced AI models like BERT and BiLSTM, we ensure that the news articles you read are verified for authenticity. Protect yourself from misinformation and make informed decisions.
+        </p>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <h3>Contact Us</h3>
+            <p>Have questions or need support with the Fake News Detection Platform? Reach out to us:</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:support@fakenewsdetector.com">support@fakenewsdetector.com</a></p>
+                <p>Phone: +123-456-7890</p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Page - Electrical Machines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #28a745; /* Green background */
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative; /* Allow positioning of logout button */
+        }
+        .header-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header-subtitle {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .qa-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+            margin: 20px auto;
+        }
+        .logout-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #dc3545; /* Red background for logout */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .logout-button:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+        .form-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container textarea {
+            width: 100%;
+            height: 120px; /* Slightly increased height */
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            margin-top: 10px;
+            align-self: flex-end; /* Align the button to the right */
+            background-color: #28a745; /* Green background for submit */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        .answer-container {
+            margin-top: 20px;
+        }
+        .answer-container p {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .sentiment-container {
+            margin-top: 20px;
+        }
+        .sentiment-container p {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Fake News Detection Platform</h1>
+        <p class="header-subtitle">Welcome, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </header>
+
+    <div class="qa-container">
+        <h2>Check Article</h2>
+        <form method="post" action="{% url 'qa_page' %}" class="form-container">
+            {% csrf_token %}
+            <textarea name="question" placeholder="Check your article title here...">{{ request.POST.question }}</textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if fact %}
+        <div class="sentiment-container">
+            <h3>Fact Check:</h3>
+            <p>{{fact}} </p>
+        </div>
+        {% endif %}
+
+        {% if answer %}
+        <div class="answer-container">
+            <h3>Contextual Prediction:</h3>
+            <p>{{ answer }}</p>
+        </div>
+        {% endif %}
+
+        {% if sentiment_result %}
+        <div class="sentiment-container">
+            <h3>Sentiment Analysis:</h3>
+            <p>{{ sentiment_result }} with score: {{score}}</p>
+        </div>
+        {% endif %}
+
+        
+    </div>
+</body>
+</html>
